@@ -1,26 +1,26 @@
     org 100h
+    mov ax, 0d ; Fn-1
+    mov bx, 1d ; Fn-2
+    mov SI, 0d ; 
+    mov cx, 0d ; variable aux
+    mov dx, 3d ; contador
 
-        mov ax, 2d ; inicializando ax con los casos iniciales
-        mov bx, 2d ; inicializando el multiplicador
-        mov SI, 1d ; 
-        mov cx, 1d
-        mov [210h], ax ;
+    mov [SI+220h], ax
+    inc SI
+    mov [SI+220h], bx
+    inc SI
+    Add ax, bx
+    mov [SI+220h], ax
 
-prcd1:  mul bx
-        mov [SI+210h], ax ;
-        inc SI
-        inc cx
+op1:mov cx, ax
+    add ax, bx
+    mov bx, cx
+    mov [SI+220h], ax
+    inc SI
+    inc dx 
 
-        cmp  ax, 100h
-        jb prcd1
+    cmp dx, 000Fh
+    jb op1
 
-prcd2:  mul bx
-        inc SI
-        mov [SI+210h], ax
-        inc cx
-        inc SI
-        
-        cmp cx, 11d
-        jb prcd2
 
     int 10h
