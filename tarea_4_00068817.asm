@@ -5,12 +5,13 @@
     mov cx, 0d ; variable aux
     mov dx, 3d ; contador
 
-    mov [SI+220h], ax
+    mov [SI+220h], ax ; se agrega 0
     inc SI
-    mov [SI+220h], bx
+    mov [SI+220h], bx ; se agrega 1
     inc SI
-    Add ax, bx
-    mov [SI+220h], ax
+    Add ax, bx        ; se suma ax+bx 1+0
+    mov [SI+220h], ax ; se agrega 1
+    inc SI
 
 op1:mov cx, ax
     add ax, bx
