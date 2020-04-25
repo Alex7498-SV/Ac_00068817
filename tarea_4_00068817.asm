@@ -22,5 +22,4 @@ op1:mov cx, ax
     cmp dx, 000Fh
     jb op1
 
-
     int 10h
